@@ -55,17 +55,17 @@ def cleansing(sent):
     strings = re.sub(r'[^a-zA-Z0-9]', ' ', strings)
     return strings
 
-file = open("lstm_model/resources/x_pad_sequences.pickle", "rb")
+file = open("lstm/resources/x_pad_sequences.pickle", "rb")
 feature_file_from_lstm = pickle.load(file)
 file.close()
 
-model_file_from_lstm = load_model("lstm_model/model/model.h5")
+model_file_from_lstm = load_model("lstm/model/model.h5")
 
-file = open("rnn_model/resources/x_pad_sequences.pickle", "rb")
+file = open("rnn/resources/x_pad_sequences.pickle", "rb")
 feature_file_from_rnn = pickle.load(file)
 file.close()
 
-model_file_from_rnn = load_model("rnn_model/model/model.h5")
+model_file_from_rnn = load_model("rnn/model/model.h5")
 
 @swag_from("docs/lstm.yml", methods=['POST'])
 @app.route("/lstm", methods=['POST'])
